@@ -1,137 +1,98 @@
-Kaomoji Engine
-A Minimal Emotional State Simulator
-Overview
-The Kaomoji Engine is a lightweight system that simulates emotional state transitions over time and expresses those states symbolically using kaomoji.
-It is not a chatbot.
-It is not a UI.
-It is not trained on data.
-It is a stateful engine designed to model how internal states can evolve, persist, and surface in observable ways without interpretation or narrative.
-The output is intentionally simple.
-The structure is the point.
-________________________________________
-What It Does
-The engine runs a continuous heartbeat loop.
-On each cycle it:
-• maintains an internal emotional state
-• evaluates whether a transition occurs
-• updates state based on defined logic
-• emits a symbolic representation of the current state
-Each state is mapped to a kaomoji.
-The kaomoji is the expression, not the state itself.
-No user input is required.
-No prompts are involved.
-This makes the system suitable for observation, instrumentation, or embedding inside larger systems.
-________________________________________
-Why It Exists
-Most systems that deal with emotion or affect collapse three things into one:
-• state
-• interpretation
-• expression
-The Kaomoji Engine separates them.
-It demonstrates that:
-• internal state can exist without narrative
-• expression can be symbolic and lossy
-• observers do not need access to meaning to detect change
-• time based behavior matters more than interaction
-This makes it useful as a primitive for thinking about:
-• emotional modeling
-• human factors
-• operator state
-• affective systems
-• alignment adjacent research
-• neurodivergent cognition patterns
-It is intentionally small so the behavior is legible.
-________________________________________
-What It Is Not
-The engine does not:
-• attempt to understand language
-• simulate human emotion realistically
-• infer user intent
-• respond to prompts
-• optimize for believability
-• perform sentiment analysis
-Any meaning you perceive is your own.
-That is by design.
-________________________________________
-Architecture
-At its core, the system consists of:
-• a defined set of emotional states
-• a transition model
-• a heartbeat loop
-• an output mapping
-The heartbeat drives the system forward in time.
-Transitions are probabilistic but bounded.
-States persist unless changed.
-Output is always observable.
-There is no memory of past outputs beyond the current state.
-This makes the system deterministic enough to reason about, but expressive enough to study.
-________________________________________
-How To Run It
-Requirements are minimal.
-• Python installed
-• No external dependencies
-From the engine directory:
+# Kaomoji Emotional Confusion Engine
+
+## Implementation and design note
+
+The Kaomoji Emotional Confusion Engine is a deliberately small terminal program. It starts with one kaomoji, repeatedly changes its character string, and exposes every change as a numbered frame.
+
+The implementation is the claim. There is no trained model, hidden emotional layer, narrative engine, or sentiment analysis behind it.
+
+## The state
+
+The current kaomoji string is the engine's complete state. A frame is both the stored state and the visible output.
+
+The engine does not maintain a separate label such as happy, distressed, or confused. Any emotional reading belongs to the observer.
+
+## The heartbeat
+
+The heartbeat loop performs four operations:
+
+1. Select one mutation from the active cycle.
+2. Apply it to the current string.
+3. Bound the result to the configured maximum width.
+4. Print the new state as the next frame.
+
+The loop continues until it reaches a requested frame count or receives a keyboard interruption.
+
+## The mutation cycles
+
+Every cycle includes four small substitutions:
+
+- lowercase `o` can become uppercase `O`
+- a period can become `o`
+- a caret can become `o`
+- an underscore can become a period
+
+Each cycle adds its own behavior:
+
+### Ripple
+
+Adds a tilde to the left or right edge. The result accumulates visible edge noise.
+
+### Spiral
+
+Reverses the string or places it inside another pair of parentheses. The result can flip or nest.
+
+### Break
+
+Gives every character a 30 percent chance of becoming `x`. The result can degrade quickly and unevenly.
+
+### Echo
+
+Duplicates the current string with a space between copies. Because repeated duplication would otherwise grow exponentially, the engine compresses the middle when the configured width is exceeded.
+
+## Bounded endlessness
+
+The original engine could keep adding characters, especially in `echo` mode, until output and memory use became unreasonable. The current engine separates duration from size:
+
+- duration is unlimited by default
+- each visible state has a fixed maximum width
+- a finite frame count can be supplied for demonstrations
+- a random seed can make a run repeatable
+
+This keeps the continuous behavior without pretending a computer has infinite memory.
+
+## Input and operation
+
+The simplest run is interactive:
+
+```bash
 python kaomoji_engine.py
-The engine will start and emit state outputs continuously until stopped.
-Use CTRL+C to exit.
-________________________________________
-Intended Use
-The Kaomoji Engine is intended as:
-• a research artifact
-• a teaching tool
-• a demonstrator
-• a building block
-• a provocation
-It can be embedded, extended, or observed as is.
-There is no expectation of modification, though extension is possible.
-________________________________________
-Versioning and Evolution
-This release represents a complete minimal engine.
-Future versions may explore:
-• alternative state models
-• different transition dynamics
-• instrumentation and logging
-• external triggers
-• comparative systems
-Earlier versions are not invalidated by later ones.
-Progression is part of the signal.
-________________________________________
-Design Philosophy
-The engine follows a few simple rules:
-• finish before expanding
-• separate state from expression
-• prefer clarity over realism
-• let behavior emerge from time
-• avoid unnecessary interfaces
-The goal is not to impress.
-The goal is to be inspectable.
-________________________________________
-Closing Note
-This engine is deliberately quiet.
-If it feels simple, that is correct.
-If it feels incomplete, that is intentional.
-It exists to show how a system thinks over time, not to explain itself.
-Everything else can be built on top.
+```
 
+The operator chooses a cycle and stops the heartbeat with `Ctrl+C`.
 
+The same engine can run without interactive input:
 
+```bash
+python kaomoji_engine.py --cycle break --frames 20 --random-seed 11 --delay 0
+```
 
+This makes the artifact easy to demonstrate, test, embed, or capture without changing its basic behavior.
 
+## Design boundaries
 
+The engine intentionally does not:
 
+- understand language
+- infer intent
+- classify emotion
+- remember earlier frames beyond the current string
+- assign meaning to its symbols
+- optimize toward a goal
+- claim psychological realism
 
+It demonstrates one narrow thing: a finite set of symbolic operations can create a changing sequence that observers instinctively try to read.
 
+## Extension points
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+The code can support additional cycles, alternative seed sets, output logging, or external triggers. Those are extensions, not missing pieces. The contained engine is already complete when it can start, mutate, remain bounded, stop cleanly, and reproduce a finite run when asked.

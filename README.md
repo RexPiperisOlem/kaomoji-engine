@@ -65,3 +65,12 @@ The tests use only the Python standard library.
 - `ENGINE.md` — the implementation and design note
 - `ON THE BUILDER.md` — contextual notes about the broader system-building approach
 - `tests/test_kaomoji_engine.py` — bounded-run and behavior checks
+
+## About the builder
+
+Built and documented by **Roger Crosby** as a small, inspectable experiment in symbolic mutation, bounded state, and observer interpretation.
+
+Roger is available for remote contract work and project-based collaboration involving artificial-intelligence evaluation, agent workflows, documentation systems, operational writing, and unusual working prototypes.
+
+Contact: [info@paranoidpeoplelivelonger.com](mailto:info@paranoidpeoplelivelonger.com)  
+Portfolio: [PPLL Signal Archive](https://github.com/RexPiperisOlem/PPLL-Signal-Archive)

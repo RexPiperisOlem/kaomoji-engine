@@ -157,12 +157,12 @@ heartbeat(
 
 Useful public functions include:
 
-- `generate_seed()` — choose one baseline face;
-- `distort()` — apply one bounded mutation;
-- `bound_output()` — limit state width while preserving both ends;
-- `choose_cycle()` — run the interactive cycle prompt;
-- `heartbeat()` — run the mutation loop and return the final state;
-- `build_parser()` — construct the command-line argument parser.
+- `generate_seed()` - choose one baseline face;
+- `distort()` - apply one bounded mutation;
+- `bound_output()` - limit state width while preserving both ends;
+- `choose_cycle()` - run the interactive cycle prompt;
+- `heartbeat()` - run the mutation loop and return the final state;
+- `build_parser()` - construct the command-line argument parser.
 
 ## Tests
 

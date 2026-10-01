@@ -245,6 +245,7 @@ The project demonstrates the ability to move from an unusual concept to:
 Roger is available for remote contract work and project-based collaboration involving artificial-intelligence evaluation, human-gated workflows, documentation systems, operational writing, and unusual working prototypes.
 
 Contact: [info@paranoidpeoplelivelonger.com](mailto:info@paranoidpeoplelivelonger.com)  
+Systems Papers: [PPLL Systems Papers](https://github.com/RexPiperisOlem/PPLL-Systems-Papers)  
 Portfolio: [PPLL Signal Archive](https://github.com/RexPiperisOlem/PPLL-Signal-Archive)  
 Website: [Paranoid People Live Longer](https://paranoidpeoplelivelonger.com)  
 Profile: [RexPiperisOlem](https://github.com/RexPiperisOlem)
